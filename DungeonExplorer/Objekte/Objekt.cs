@@ -10,8 +10,8 @@ namespace DungeonExplorer.Objekte
     {
         protected short _posOben;
         protected short _posLinks;
-        protected short _bezeichnung;
 
+        protected short _bezeichnung;
 
         public Objekt(short posOben, short posLinks)
         {
