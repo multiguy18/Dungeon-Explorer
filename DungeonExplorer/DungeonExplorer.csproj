@@ -46,6 +46,7 @@
     <Compile Include="Hauptprogramm.cs" />
     <Compile Include="Objekte\Figur.cs" />
     <Compile Include="Objekte\Objekt.cs" />
+    <Compile Include="Objekte\Spielerfigur.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Zeichner.cs" />
   </ItemGroup>
