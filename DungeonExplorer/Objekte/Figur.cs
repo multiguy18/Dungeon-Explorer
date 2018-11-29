@@ -6,8 +6,13 @@ using System.Threading.Tasks;
 
 namespace DungeonExplorer.Objekte
 {
-    public abstract class Figur
+    public abstract class Figur : Objekt
     {
+        public Figur(short posOben, short posLinks) : base(posOben, posLinks)
+        {
+
+        }
+
         protected ushort _HP;
         protected ushort _schaden;
 
