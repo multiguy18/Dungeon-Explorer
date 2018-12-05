@@ -9,13 +9,17 @@ namespace DungeonExplorer
 {
     internal struct LevelData
     {
-        public byte[,] Level { get; private set; }
-        public List<Objekt> Objekte { get; private set; }
+        private byte[,] _level;
+        private List<Objekt> _objekte;
+
+        public byte[,] Level { get { return _level; } }
+
+        public List<Objekt> Objekte { get { return _objekte; } }
 
         public LevelData(byte[,] level, List<Objekt> objekte)
         {
-            Level = level;
-            Objekte = objekte;
+            _level = level;
+            _objekte = objekte;
         }
     }
 
@@ -40,5 +44,18 @@ namespace DungeonExplorer
             })
         };
 
+        public List<Objekt> LadeLevel(byte levelnr)
+        {
+            LevelData aktuellesLevel = levels[levelnr];
+
+            Level = aktuellesLevel.Level;
+            return aktuellesLevel.Objekte;
+        }
+
+        //TODO: Kollisionsüberprüfverfahren überdenken
+        public bool PruefeKollision(short posOben, short PosLinks)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

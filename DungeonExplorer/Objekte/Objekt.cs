@@ -13,6 +13,16 @@ namespace DungeonExplorer.Objekte
 
         protected short _bezeichnung;
 
+        public short PosOben
+        {
+            get { return _posOben; }
+        }
+
+        public short PosLinks
+        {
+            get { return _posLinks; }
+        }
+
         public Objekt(short posOben, short posLinks)
         {
             _posOben = posOben;
