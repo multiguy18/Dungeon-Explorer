@@ -9,7 +9,7 @@ namespace DungeonExplorer.Objekte
     public class Spielfigur : Figur
     {
         public string Name { get; private set; }
-        Spielfigur(string name, short posOben, short posLinks) : base (posOben, posLinks)
+        public Spielfigur(string name, short posOben, short posLinks) : base (posOben, posLinks)
         {
             Name = name;
         }
