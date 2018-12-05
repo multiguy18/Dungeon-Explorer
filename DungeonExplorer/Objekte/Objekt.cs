@@ -11,6 +11,7 @@ namespace DungeonExplorer.Objekte
         protected short _posOben;
         protected short _posLinks;
 
+        protected char _symbol;
         protected short _bezeichnung;
 
         public short PosOben
@@ -23,10 +24,15 @@ namespace DungeonExplorer.Objekte
             get { return _posLinks; }
         }
 
+        public char Symbol
+        {
+            get { return _symbol; }
+        }
+
         public Objekt(short posOben, short posLinks)
         {
             _posOben = posOben;
-            _posLinks = _posLinks;
+            _posLinks = posLinks;
         }
 
         public virtual bool WirdKollidieren(Objekt anderes)

@@ -8,9 +8,31 @@ namespace DungeonExplorer
 {
     public static class Zeichner
     {
-        public static void Zeichne()
+        public static void Zeichne(byte[,] level)
         {
+            string konsoleBuffer = "";
+
+            for (short zeile = 0; zeile < level.GetLength(0); zeile++)
+            {
+                for (short spalte = 0; spalte < level.GetLength(1); spalte++)
+                {
+                    switch (level[zeile,spalte])
+                    {
+                        case 1:
+                            konsoleBuffer += "|";
+                            break;
+                        case 2:
+                            konsoleBuffer += ".";
+                            break;
+                        default:
+                            konsoleBuffer += " ";
+                            break;
+                    }
+                }
+                konsoleBuffer += "\n";
+            }
             
+            Console.Write(konsoleBuffer);
         }
 
         public static void Textausgabe(string text)

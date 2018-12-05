@@ -46,7 +46,7 @@ namespace DungeonExplorer
 
         public List<Objekt> LadeLevel(byte levelnr)
         {
-            LevelData aktuellesLevel = levels[levelnr];
+            LevelData aktuellesLevel = levels[--levelnr];
 
             Level = aktuellesLevel.Level;
             return aktuellesLevel.Objekte;

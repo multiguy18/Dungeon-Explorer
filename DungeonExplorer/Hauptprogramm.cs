@@ -10,7 +10,10 @@ namespace DungeonExplorer
     {
         static void Main(string[] args)
         {
-
+            LevelAnbieter lan = new LevelAnbieter();
+            lan.LadeLevel(1);
+            Zeichner.Zeichne(lan.Level);
+            Console.ReadKey();
         }
     }
 }
