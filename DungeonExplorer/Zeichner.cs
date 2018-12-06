@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DungeonExplorer.Objekte;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace DungeonExplorer
 {
     public static class Zeichner
     {
-        public static void Zeichne(byte[,] level)
+        public static void Zeichne(byte[,] level, List<Objekt> objekte)
         {
             string konsoleBuffer = "";
 

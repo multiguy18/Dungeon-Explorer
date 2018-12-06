@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DungeonExplorer.Objekte;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,12 +9,24 @@ namespace DungeonExplorer
 {
     class Hauptprogramm
     {
+        private static LevelAnbieter _lAnbieter;
+        private static List<Objekt> _objekte;
+
         static void Main(string[] args)
         {
-            LevelAnbieter lan = new LevelAnbieter();
-            lan.LadeLevel(1);
-            Zeichner.Zeichne(lan.Level);
-            Console.ReadKey();
+            LevelAnbieter lAnbieter = new LevelAnbieter();
+            _objekte = lAnbieter.LadeLevel(1);
+            Zeichner.Zeichne(lAnbieter.Level, _objekte);
+
+            do
+            {
+                
+            } while (true);
+        }
+
+        public static void WechsleLevel(byte levelnr)
+        {
+
         }
     }
 }
