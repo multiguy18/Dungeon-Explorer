@@ -45,7 +45,7 @@ namespace DungeonExplorer
 
         }
 
-        public static void Textausgabe(string text)
+        public static void Textausgabe(string text, bool resetCursor = false)
         {
             StringBuilder empty = new StringBuilder();
             empty.Insert(0, " ", 45);
@@ -56,7 +56,10 @@ namespace DungeonExplorer
             Console.SetCursorPosition(2, 20);
             Console.Write(text.Take(45).ToArray());
 
-            Console.SetCursorPosition(0, 0);
+            if (resetCursor)
+            {
+                Console.SetCursorPosition(0, 0);
+            }
         }
     }
 }

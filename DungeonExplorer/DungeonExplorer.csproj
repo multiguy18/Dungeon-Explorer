@@ -43,12 +43,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Aktion.cs" />
     <Compile Include="Hauptprogramm.cs" />
     <Compile Include="LevelAnbieter.cs" />
     <Compile Include="Objekte\Figur.cs" />
     <Compile Include="Objekte\Objekt.cs" />
     <Compile Include="Objekte\Spielfigur.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Richtung.cs" />
     <Compile Include="Zeichner.cs" />
   </ItemGroup>
   <ItemGroup>

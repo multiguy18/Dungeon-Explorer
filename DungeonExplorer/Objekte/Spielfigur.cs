@@ -21,10 +21,31 @@ namespace DungeonExplorer.Objekte
             _posLinks = posLinks;
         }
 
-        public void Bewege()
+        public void Bewege(Richtung richtung)
         {
-            throw new NotImplementedException();
+            short _tempPosOben = _posOben;
+            short _tempPosLinks = _posLinks;
+
+            switch (richtung)
+            {
+                case Richtung.Oben:
+                    _tempPosOben--;
+                    break;
+                case Richtung.Links:
+                    _tempPosLinks--;
+                    break;
+                case Richtung.Unten:
+                    _tempPosOben++;
+                    break;
+                case Richtung.Rechts:
+                    _tempPosLinks++;
+                    break;
+            }
+
+            //TODO: Kollision überprüfen
+            _posOben = _tempPosOben;
+            _posLinks = _tempPosLinks;
+
         }
-        
     }
 }
