@@ -22,5 +22,41 @@ namespace DungeonExplorer.Test
 
             Assert.IsTrue(_spielfigur.PosOben == _testPosOben && _spielfigur.PosLinks == _testPosLinks);
         }
+
+        [Test]
+        public void SpielernachLinksBewegen()
+        {
+            short _testPosOben = 10;
+            short _testPosLinks = 9;
+
+            Spielfigur _spielfigur = new Spielfigur("Ralph", 10, 10);
+            _spielfigur.Bewege(Richtung.Links);
+
+            Assert.IsTrue(_spielfigur.PosOben == _testPosOben && _spielfigur.PosLinks == _testPosLinks);
+        }
+
+        [Test]
+        public void SpielerNachUntenBewegen()
+        {
+            short _testPosOben = 11;
+            short _testPosLinks = 10;
+
+            Spielfigur _spielfigur = new Spielfigur("Ralph", 10, 10);
+            _spielfigur.Bewege(Richtung.Unten);
+
+            Assert.IsTrue(_spielfigur.PosOben == _testPosOben && _spielfigur.PosLinks == _testPosLinks);
+        }
+
+        [Test]
+        public void SpielerNachRechtsBewegen()
+        {
+            short _testPosOben = 10;
+            short _testPosLinks = 11;
+
+            Spielfigur _spielfigur = new Spielfigur("Ralph", 10, 10);
+            _spielfigur.Bewege(Richtung.Rechts);
+
+            Assert.IsTrue(_spielfigur.PosOben == _testPosOben && _spielfigur.PosLinks == _testPosLinks);
+        }
     }
 }
