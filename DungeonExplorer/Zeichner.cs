@@ -34,6 +34,15 @@ namespace DungeonExplorer
             }
             
             Console.Write(konsoleBuffer);
+
+            foreach (Objekt obj in objekte)
+            {
+                Console.SetCursorPosition(obj.PosLinks, obj.PosOben);
+
+                Console.Write(obj.Symbol);
+            }
+
+
         }
 
         public static void Textausgabe(string text)

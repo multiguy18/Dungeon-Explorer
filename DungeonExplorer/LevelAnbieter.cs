@@ -40,7 +40,7 @@ namespace DungeonExplorer
             {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},}
             , new List<Objekt>{
-                new Spielfigur("Hallo", 6, 5),
+                new Spielfigur("Hallo", 4, 5),
             })
         };
 

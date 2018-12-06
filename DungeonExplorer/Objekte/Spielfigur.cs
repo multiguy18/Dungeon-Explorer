@@ -12,6 +12,7 @@ namespace DungeonExplorer.Objekte
         public Spielfigur(string name, short posOben, short posLinks) : base (posOben, posLinks)
         {
             Name = name;
+            _symbol = '@';
         }
 
         public void Bewege(short posOben, short posLinks)
