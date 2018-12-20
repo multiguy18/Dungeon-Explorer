@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DungeonExplorer
 {
-    class Hauptprogramm
+    public class Hauptprogramm
     {
         private static LevelAnbieter _lAnbieter;
         private static List<Objekt> _objekte;
@@ -73,6 +73,13 @@ namespace DungeonExplorer
             }
 
             return Aktion.BewegeNachUnten;
+        }
+
+        public static bool PruefeKollision(short posObenNeu, short posLinksNeu, Figur ausloeser)
+        {
+            bool kollision = false;
+            kollision = _lAnbieter.PruefeKollision(posObenNeu, posLinksNeu);
+            return kollision;
         }
     }
 }

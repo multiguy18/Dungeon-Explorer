@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DungeonExplorer;
 
 namespace DungeonExplorer.Objekte
 {
@@ -42,10 +43,11 @@ namespace DungeonExplorer.Objekte
                     break;
             }
 
-            //TODO: Kollision überprüfen
-            _posOben = _tempPosOben;
-            _posLinks = _tempPosLinks;
-
+            if (!Hauptprogramm.PruefeKollision(_tempPosOben, _tempPosLinks, this))
+            {
+                _posOben = _tempPosOben;
+                _posLinks = _tempPosLinks;
+            }
         }
     }
 }

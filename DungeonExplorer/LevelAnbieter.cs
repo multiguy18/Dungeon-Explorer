@@ -53,9 +53,15 @@ namespace DungeonExplorer
         }
 
         //TODO: Kollisionsüberprüfverfahren überdenken
-        public bool PruefeKollision(short posOben, short PosLinks)
+        public bool PruefeKollision(short posOben, short posLinks)
         {
-            throw new NotImplementedException();
+            byte abschnitt = Level[posOben, posLinks];
+            if (abschnitt == 1 || abschnitt == 0)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }
