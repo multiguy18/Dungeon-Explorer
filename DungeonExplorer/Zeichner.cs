@@ -25,6 +25,9 @@ namespace DungeonExplorer
                         case 2:
                             konsoleBuffer += ".";
                             break;
+                        case 3:
+                            konsoleBuffer += "#";
+                            break;
                         default:
                             konsoleBuffer += " ";
                             break;

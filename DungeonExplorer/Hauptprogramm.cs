@@ -11,15 +11,17 @@ namespace DungeonExplorer
     {
         private static LevelAnbieter _lAnbieter;
         private static List<Objekt> _objekte;
+        private static List<Objekt> _zuLoeschendeObjekte;
         private static Spielfigur _spielfigur;
+        private static byte _levelNr = 2;
+
+        public static bool NaechstesLevel = false;
 
         static void Main(string[] args)
         {
             _lAnbieter = new LevelAnbieter();
-            _objekte = _lAnbieter.LadeLevel(1);
-
-            _spielfigur = (Spielfigur)_objekte.Single(p => p.GetType() == typeof(Spielfigur));
-            //_objekte.Remove(_spielfigur);
+            _zuLoeschendeObjekte = new List<Objekt>();
+            WechsleLevel(_levelNr);
 
             Zeichner.Zeichne(_lAnbieter.Level, _objekte);
 
@@ -43,6 +45,21 @@ namespace DungeonExplorer
                         _spielfigur.Bewege(Richtung.Rechts);
                         break;
                 }
+
+                foreach (Objekt objekt in _zuLoeschendeObjekte)
+                {
+                    _objekte.Remove(objekt);
+                }
+                _zuLoeschendeObjekte.Clear();
+
+                if (NaechstesLevel == true)
+                {
+                    _levelNr++;
+                    WechsleLevel(_levelNr);
+
+                    NaechstesLevel = false;
+                }
+
                 Console.Clear();
 
                 Zeichner.Zeichne(_lAnbieter.Level, _objekte);
@@ -52,7 +69,23 @@ namespace DungeonExplorer
 
         public static void WechsleLevel(byte levelnr)
         {
-            
+            _objekte = _lAnbieter.LadeLevel(levelnr);
+
+            if (_spielfigur != null)
+            {
+                Spielfigur duplikat = (Spielfigur)_objekte.Single(p => p.GetType() == typeof(Spielfigur));
+
+                short posObenNeu = duplikat.PosOben;
+                short posLinksNeu = duplikat.PosLinks;
+                _objekte.Remove(duplikat);
+
+                _spielfigur.Bewege(posObenNeu, posLinksNeu);
+                _objekte.Add(_spielfigur);
+            }
+            else
+            {
+                _spielfigur = (Spielfigur)_objekte.Single(p => p.GetType() == typeof(Spielfigur));
+            }
         }
 
         private static Aktion VerarbeiteEingabe()
@@ -77,9 +110,30 @@ namespace DungeonExplorer
 
         public static bool PruefeKollision(short posObenNeu, short posLinksNeu, Figur ausloeser)
         {
-            bool kollision = false;
-            kollision = _lAnbieter.PruefeKollision(posObenNeu, posLinksNeu);
-            return kollision;
+            bool kollisionMitLevel = _lAnbieter.PruefeKollision(posObenNeu, posLinksNeu);
+            bool kollisionMitObjekt = false;
+
+            foreach (Objekt objekt in _objekte)
+            {
+                if (objekt.PosOben == posObenNeu && objekt.PosLinks == posLinksNeu)
+                {
+                    kollisionMitObjekt = ausloeser.WirdKollidieren(objekt);
+                }
+            }
+
+            if (kollisionMitLevel || kollisionMitObjekt)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public static void Entferne(Objekt objekt)
+        {
+            _zuLoeschendeObjekte.Add(objekt);
         }
     }
 }

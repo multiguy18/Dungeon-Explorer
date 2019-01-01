@@ -49,5 +49,21 @@ namespace DungeonExplorer.Objekte
                 _posLinks = _tempPosLinks;
             }
         }
+
+        public override bool WirdKollidieren(Objekt anderes)
+        {
+            string type = anderes.GetType().Name;
+
+            switch (anderes.GetType().Name)
+            {
+                case "Tuere":
+                    Tuere tuere = (Tuere)anderes;
+                    tuere.OeffneTuere();
+                    return true;
+                default:
+                    return true;
+
+            }
+        }
     }
 }

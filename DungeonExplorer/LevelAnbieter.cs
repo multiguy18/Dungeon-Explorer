@@ -41,6 +41,21 @@ namespace DungeonExplorer
             {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},}
             , new List<Objekt>{
                 new Spielfigur("Hallo", 4, 5),
+            }),
+            new LevelData(new byte[,]
+           {{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0},
+            {0, 0, 0, 1, 2, 2, 2, 1, 0, 0, 0, 0, 0},
+            {0, 0, 0, 1, 2, 2, 2, 3, 3, 3, 3, 3, 0},
+            {0, 0, 0, 1, 2, 2, 2, 1, 0, 0, 0, 3, 0},
+            {0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 3, 1},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 2, 1},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 2, 1},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1},}
+            , new List<Objekt>{
+                new Spielfigur("Hallo", 7, 10),
+                new Tuere(6, 11)
             })
         };
 
@@ -52,7 +67,6 @@ namespace DungeonExplorer
             return aktuellesLevel.Objekte;
         }
 
-        //TODO: Kollisionsüberprüfverfahren überdenken
         public bool PruefeKollision(short posOben, short posLinks)
         {
             byte abschnitt = Level[posOben, posLinks];
