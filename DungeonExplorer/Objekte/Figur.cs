@@ -26,6 +26,16 @@ namespace DungeonExplorer.Objekte
             {
                 _HP -= schaden;
             }
+
+            if (_HP == 0)
+            {
+                IstTot();
+            }
+        }
+
+        public virtual void IstTot()
+        {
+
         }
     }
 }
