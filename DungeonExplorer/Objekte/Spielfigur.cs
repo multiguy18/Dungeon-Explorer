@@ -52,18 +52,14 @@ namespace DungeonExplorer.Objekte
 
         public override bool WirdKollidieren(Objekt anderes)
         {
-            string type = anderes.GetType().Name;
-
-            switch (anderes.GetType().Name)
+            if (anderes is Tuere)
             {
-                case "Tuere":
-                    Tuere tuere = (Tuere)anderes;
-                    tuere.OeffneTuere();
-                    return true;
-                default:
-                    return true;
-
+                Tuere tuere = (Tuere)anderes;
+                tuere.OeffneTuere();
+                return true;
             }
+
+            return true;
         }
     }
 }

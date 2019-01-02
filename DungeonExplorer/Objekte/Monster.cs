@@ -15,6 +15,12 @@ namespace DungeonExplorer.Objekte
             _ziel = ziel;
         }
 
+        //FIXME: Temporär da Levels samt Objekte und Spieler in einem Array initialisiert werden
+        public void SetzeZiel(Spielfigur ziel)
+        {
+            _ziel = ziel;
+        }
+
         public virtual void Bewege()
         {
             short _tempPosOben = _posOben;
@@ -54,6 +60,11 @@ namespace DungeonExplorer.Objekte
                 _posOben = _tempPosOben;
                 _posLinks = _tempPosLinks;
             }
+        }
+
+        protected override void IstTot()
+        {
+            Hauptprogramm.Entferne(this);
         }
     }
 }

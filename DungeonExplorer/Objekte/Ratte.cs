@@ -10,7 +10,9 @@ namespace DungeonExplorer.Objekte
     {
         public Ratte(Spielfigur ziel, short posOben, short posLinks) : base(ziel, posOben, posLinks)
         {
-
+            _symbol = '(';
+            _HP = 5;
+            _schaden = 3;
         }
     }
 }

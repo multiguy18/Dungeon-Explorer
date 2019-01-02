@@ -52,6 +52,15 @@ namespace DungeonExplorer
                 }
                 _zuLoeschendeObjekte.Clear();
 
+                foreach (Objekt objekt in _objekte)
+                {
+                    if (objekt is Monster)
+                    {
+                        Monster monster = (Monster)objekt;
+                        monster.Bewege();
+                    }
+                }
+
                 if (NaechstesLevel == true)
                 {
                     _levelNr++;
@@ -85,6 +94,14 @@ namespace DungeonExplorer
             else
             {
                 _spielfigur = (Spielfigur)_objekte.Single(p => p.GetType() == typeof(Spielfigur));
+            }
+
+            foreach (Objekt objekt in _objekte)
+            {
+                if (objekt is Monster)
+                {
+                    ((Monster)objekt).SetzeZiel(_spielfigur);
+                }
             }
         }
 

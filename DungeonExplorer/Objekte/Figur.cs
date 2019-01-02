@@ -33,7 +33,7 @@ namespace DungeonExplorer.Objekte
             }
         }
 
-        public virtual void IstTot()
+        protected virtual void IstTot()
         {
 
         }

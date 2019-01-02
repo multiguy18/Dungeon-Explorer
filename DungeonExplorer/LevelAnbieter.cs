@@ -55,7 +55,8 @@ namespace DungeonExplorer
             {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1},}
             , new List<Objekt>{
                 new Spielfigur("Hallo", 7, 10),
-                new Tuere(6, 11)
+                new Tuere(6, 11),
+                new Ratte(null, 4, 5)
             })
         };
 
@@ -64,6 +65,7 @@ namespace DungeonExplorer
             LevelData aktuellesLevel = levels[--levelnr];
 
             Level = aktuellesLevel.Level;
+
             return aktuellesLevel.Objekte;
         }
 
