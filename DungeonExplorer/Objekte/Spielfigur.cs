@@ -15,7 +15,7 @@ namespace DungeonExplorer.Objekte
             Name = name;
             _symbol = '@';
             _HP = 30;
-            _schaden = 2;
+            _schaden = 5;
         }
 
         public ushort HP
@@ -64,6 +64,17 @@ namespace DungeonExplorer.Objekte
                 Tuere tuere = (Tuere)anderes;
                 tuere.OeffneTuere();
                 return true;
+            }
+            else if (anderes is Monster)
+            {
+                //TODO: If zum überprüfen ob eine Waffe ausgewählt ist
+                Monster monster = (Monster)anderes;
+
+                Random zufallsgen = new Random();
+                if (zufallsgen.NextDouble() < 0.75)
+                {
+                    monster.Schade(_schaden);
+                }
             }
 
             return true;
