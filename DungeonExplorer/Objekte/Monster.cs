@@ -62,6 +62,19 @@ namespace DungeonExplorer.Objekte
             }
         }
 
+        public override bool WirdKollidieren(Objekt anderes)
+        {
+            if (anderes is Spielfigur)
+            {
+                Spielfigur spielfigur = (Spielfigur)anderes;
+                spielfigur.Schade(_schaden);
+
+                return true;
+            }
+
+            return true;
+        }
+
         protected override void IstTot()
         {
             Hauptprogramm.Entferne(this);

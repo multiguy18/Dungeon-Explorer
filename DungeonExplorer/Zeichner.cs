@@ -9,7 +9,7 @@ namespace DungeonExplorer
 {
     public static class Zeichner
     {
-        public static void Zeichne(byte[,] level, List<Objekt> objekte)
+        public static void Zeichne(byte[,] level, List<Objekt> objekte, Spielfigur spielfigur)
         {
             string konsoleBuffer = "";
 
@@ -45,7 +45,9 @@ namespace DungeonExplorer
                 Console.Write(obj.Symbol);
             }
 
-
+            Console.SetCursorPosition(1, 23);
+            Console.Write("HP:" + spielfigur.HP);
+            Console.SetCursorPosition(0, 0);
         }
 
         public static void Textausgabe(string text, bool resetCursor = false)
@@ -53,10 +55,10 @@ namespace DungeonExplorer
             StringBuilder empty = new StringBuilder();
             empty.Insert(0, " ", 45);
 
-            Console.SetCursorPosition(2, 20);
+            Console.SetCursorPosition(2, 24);
             Console.Write(empty);
 
-            Console.SetCursorPosition(2, 20);
+            Console.SetCursorPosition(2, 24);
             Console.Write(text.Take(45).ToArray());
 
             if (resetCursor)

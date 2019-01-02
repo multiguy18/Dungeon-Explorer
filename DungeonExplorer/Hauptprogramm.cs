@@ -23,7 +23,7 @@ namespace DungeonExplorer
             _zuLoeschendeObjekte = new List<Objekt>();
             WechsleLevel(_levelNr);
 
-            Zeichner.Zeichne(_lAnbieter.Level, _objekte);
+            Zeichner.Zeichne(_lAnbieter.Level, _objekte, _spielfigur);
 
             do
             {
@@ -71,7 +71,7 @@ namespace DungeonExplorer
 
                 Console.Clear();
 
-                Zeichner.Zeichne(_lAnbieter.Level, _objekte);
+                Zeichner.Zeichne(_lAnbieter.Level, _objekte, _spielfigur);
 
             } while (true);
         }

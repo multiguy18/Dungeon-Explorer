@@ -14,6 +14,13 @@ namespace DungeonExplorer.Objekte
         {
             Name = name;
             _symbol = '@';
+            _HP = 30;
+            _schaden = 2;
+        }
+
+        public ushort HP
+        {
+            get { return _HP; }
         }
 
         public void Bewege(short posOben, short posLinks)
