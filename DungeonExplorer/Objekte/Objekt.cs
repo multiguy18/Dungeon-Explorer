@@ -35,6 +35,11 @@ namespace DungeonExplorer.Objekte
             _posLinks = posLinks;
         }
 
+        /// <summary>
+        /// Diese Funktion wird aufgerufen, wenn dieses Objekt mit einem anderen kollidiert.
+        /// </summary>
+        /// <param name="anderes">Das andere Objekt, mit dem dieses kollidiert</param>
+        /// <returns></returns>
         public virtual bool WirdKollidieren(Objekt anderes)
         {
             return true;

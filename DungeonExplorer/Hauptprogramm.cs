@@ -134,7 +134,11 @@ namespace DungeonExplorer
             {
                 if (objekt.PosOben == posObenNeu && objekt.PosLinks == posLinksNeu)
                 {
-                    kollisionMitObjekt = ausloeser.WirdKollidieren(objekt);
+                    /*
+                     * Wieso ein Oder? Es könnte sein, dass zwei objekte 
+                     * am gleichen Ort sind.
+                     */
+                    kollisionMitObjekt |= ausloeser.WirdKollidieren(objekt);
                 }
             }
 
