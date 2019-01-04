@@ -47,6 +47,7 @@
     <Compile Include="Hauptprogramm.cs" />
     <Compile Include="LevelAnbieter.cs" />
     <Compile Include="Objekte\Figur.cs" />
+    <Compile Include="Objekte\Gegenstand.cs" />
     <Compile Include="Objekte\Monster.cs" />
     <Compile Include="Objekte\Objekt.cs" />
     <Compile Include="Objekte\Ratte.cs" />
