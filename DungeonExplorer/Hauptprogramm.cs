@@ -19,6 +19,13 @@ namespace DungeonExplorer
 
         static void Main(string[] args)
         {
+            //Initialisierung Konsole
+            Console.WindowWidth = 80;
+            Console.WindowHeight = 30;
+
+            Console.BufferWidth = 80;
+            Console.BufferHeight = 30;
+
             _lAnbieter = new LevelAnbieter();
             _zuLoeschendeObjekte = new List<Objekt>();
             WechsleLevel(_levelNr);
