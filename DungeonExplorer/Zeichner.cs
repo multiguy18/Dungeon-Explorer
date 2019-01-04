@@ -45,8 +45,8 @@ namespace DungeonExplorer
                 Console.Write(obj.Symbol);
             }
 
-            Console.SetCursorPosition(1, 23);
-            Console.Write("HP:" + spielfigur.HP);
+            Console.SetCursorPosition(1, 27);
+            Console.Write("HP:" + spielfigur.HP + " MAXHP:" + spielfigur.MaxHP);
             Console.SetCursorPosition(0, 0);
         }
 
@@ -55,10 +55,10 @@ namespace DungeonExplorer
             StringBuilder empty = new StringBuilder();
             empty.Insert(0, " ", 45);
 
-            Console.SetCursorPosition(2, 24);
+            Console.SetCursorPosition(2, 28);
             Console.Write(empty);
 
-            Console.SetCursorPosition(2, 24);
+            Console.SetCursorPosition(2, 28);
             Console.Write(text.Take(45).ToArray());
 
             if (resetCursor)

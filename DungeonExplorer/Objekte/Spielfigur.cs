@@ -38,6 +38,11 @@ namespace DungeonExplorer.Objekte
             get { return _HP; }
         }
 
+        public ushort MaxHP
+        {
+            get { return _maxHP; }
+        }
+
         public void Bewege(short posOben, short posLinks)
         {
             _posOben = posOben;
