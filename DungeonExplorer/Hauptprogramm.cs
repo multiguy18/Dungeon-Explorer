@@ -11,7 +11,7 @@ namespace DungeonExplorer
     {
         private static LevelAnbieter _lAnbieter;
         private static List<Objekt> _objekte;
-        private static List<Objekt> _zuLoeschendeObjekte;
+        private static List<Objekt> _zuEntfernendeObjekte;
         private static Spielfigur _spielfigur;
         private static byte _levelNr = 2;
 
@@ -26,10 +26,12 @@ namespace DungeonExplorer
             Console.BufferWidth = 80;
             Console.BufferHeight = 30;
 
+            //Levelanbieter erstellen und erstes Level laden
             _lAnbieter = new LevelAnbieter();
-            _zuLoeschendeObjekte = new List<Objekt>();
+            _zuEntfernendeObjekte = new List<Objekt>();
             WechsleLevel(_levelNr);
 
+            //Level und Oberfläche zeichnen
             Zeichner.Zeichne(_lAnbieter.Level, _objekte, _spielfigur);
 
             do
@@ -53,11 +55,17 @@ namespace DungeonExplorer
                         break;
                 }
 
-                foreach (Objekt objekt in _zuLoeschendeObjekte)
+                /*
+                 * Entferne alle zum entfernen markierten Objekte 
+                 * aus der Objektliste. Dies kann nicht direkt durchgeführt
+                 * werden, da sonst die Foreach-schleifen eine Ausnahme
+                 * erzeugen
+                 */
+                foreach (Objekt objekt in _zuEntfernendeObjekte)
                 {
                     _objekte.Remove(objekt);
                 }
-                _zuLoeschendeObjekte.Clear();
+                _zuEntfernendeObjekte.Clear();
 
                 foreach (Objekt objekt in _objekte)
                 {
@@ -132,6 +140,15 @@ namespace DungeonExplorer
             return Aktion.BewegeNachUnten;
         }
 
+        /// <summary>
+        /// Prüft, ob der Auslöser an der angegebenen Position mit etwas kollidiert.
+        /// Ist ein Objekt an der gleichen stelle, so wird beim Auslöser die WirdKollidieren()-Methode
+        /// aufgerufen.
+        /// </summary>
+        /// <param name="posObenNeu"></param>
+        /// <param name="posLinksNeu"></param>
+        /// <param name="ausloeser"></param>
+        /// <returns></returns>
         public static bool PruefeKollision(short posObenNeu, short posLinksNeu, Figur ausloeser)
         {
             bool kollisionMitLevel = _lAnbieter.PruefeKollision(posObenNeu, posLinksNeu);
@@ -161,7 +178,7 @@ namespace DungeonExplorer
 
         public static void Entferne(Objekt objekt)
         {
-            _zuLoeschendeObjekte.Add(objekt);
+            _zuEntfernendeObjekte.Add(objekt);
         }
     }
 }
