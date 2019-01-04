@@ -59,7 +59,7 @@ namespace DungeonExplorer
                  * Entferne alle zum entfernen markierten Objekte 
                  * aus der Objektliste. Dies kann nicht direkt durchgeführt
                  * werden, da sonst die Foreach-schleifen eine Ausnahme
-                 * erzeugen
+                 * auslösen
                  */
                 foreach (Objekt objekt in _zuEntfernendeObjekte)
                 {

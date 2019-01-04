@@ -6,18 +6,20 @@ using System.Threading.Tasks;
 
 namespace DungeonExplorer.Objekte
 {
-    public class Gegenstand : Objekt
+    public abstract class Gegenstand : Objekt
     {
-        Spielfigur spieler;
+        protected Spielfigur _spieler;
 
         public Gegenstand(short posOben, short posLinks) : base(posOben, posLinks)
         {
 
         }
 
-        public void Benutze()
+        public void SetzeSpieler(Spielfigur spieler)
         {
-
+            _spieler = spieler;
         }
+
+        public abstract void Benutze();
     }
 }

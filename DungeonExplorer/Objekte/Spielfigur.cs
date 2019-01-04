@@ -9,13 +9,28 @@ namespace DungeonExplorer.Objekte
 {
     public class Spielfigur : Figur
     {
+        private ushort _maxHP;
+
         public string Name { get; private set; }
         public Spielfigur(string name, short posOben, short posLinks) : base (posOben, posLinks)
         {
             Name = name;
             _symbol = '@';
             _HP = 30;
+            _maxHP = 30;
             _schaden = 5;
+        }
+
+        public void Heile(byte menge)
+        {
+            if (menge + _HP > _maxHP)
+            {
+                _HP = 30;
+            }
+            else
+            {
+                _HP += menge;
+            }
         }
 
         public ushort HP
