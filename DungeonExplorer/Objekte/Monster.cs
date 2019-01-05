@@ -79,6 +79,7 @@ namespace DungeonExplorer.Objekte
 
         protected override void IstTot()
         {
+            Hauptprogramm.Nachricht(_bezeichnung + " ist Tot");
             Hauptprogramm.Entferne(this);
         }
     }
