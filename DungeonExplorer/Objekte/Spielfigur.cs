@@ -99,8 +99,8 @@ namespace DungeonExplorer.Objekte
                 Random zufallsgen = new Random();
                 if (zufallsgen.NextDouble() < 0.75)
                 {
-                    monster.Schade(_schaden);
                     Hauptprogramm.Nachricht(monster.Bezeichnung + " wurde verletzt");
+                    monster.Schade(_schaden);
                 }
             }
             else if (anderes is Gegenstand)
