@@ -133,7 +133,7 @@ namespace DungeonExplorer.Objekte
                     }
                 }
 
-                Zeichner.Textausgabe("Gegenstand kann nicht ins Inventar gelegt werden.");
+                Hauptprogramm.Nachricht("Gegenstand kann nicht ins Inventar gelegt werden.");
 
                 return false;
             }

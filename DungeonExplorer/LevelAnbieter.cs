@@ -57,7 +57,8 @@ namespace DungeonExplorer
                 new Spielfigur("Hallo", 7, 10),
                 new Tuere(6, 11),
                 new Ratte(null, 4, 5),
-                new LembasBrot(8, 11)
+                new LembasBrot(8, 11),
+                new LembasBrot(7, 11)
             })
         };
 

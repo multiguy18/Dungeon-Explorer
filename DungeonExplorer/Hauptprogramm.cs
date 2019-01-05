@@ -12,8 +12,9 @@ namespace DungeonExplorer
         private static LevelAnbieter _lAnbieter;
         private static List<Objekt> _objekte;
         private static List<Objekt> _zuEntfernendeObjekte;
+        private static string _nachrichten;
         private static Spielfigur _spielfigur;
-        private static byte _levelNr = 2;
+        private static byte _levelNr;
 
         public static bool NaechstesLevel = false;
 
@@ -29,10 +30,14 @@ namespace DungeonExplorer
             //Levelanbieter erstellen und erstes Level laden
             _lAnbieter = new LevelAnbieter();
             _zuEntfernendeObjekte = new List<Objekt>();
+
+            //Erstes Level setzen
+            _levelNr = 2;
+
             WechsleLevel(_levelNr);
 
             //Level und Oberfläche zeichnen
-            Zeichner.Zeichne(_lAnbieter.Level, _objekte, _spielfigur);
+            Zeichner.Zeichne(_lAnbieter.Level, _objekte, _spielfigur, _nachrichten);
 
             do
             {
@@ -89,7 +94,9 @@ namespace DungeonExplorer
 
                 Console.Clear();
 
-                Zeichner.Zeichne(_lAnbieter.Level, _objekte, _spielfigur);
+                Zeichner.Zeichne(_lAnbieter.Level, _objekte, _spielfigur, _nachrichten);
+
+                _nachrichten = "";
 
             } while (true);
         }
@@ -184,6 +191,18 @@ namespace DungeonExplorer
         public static void Entferne(Objekt objekt)
         {
             _zuEntfernendeObjekte.Add(objekt);
+        }
+
+        public static void Nachricht(string meldung)
+        {
+            if (string.IsNullOrEmpty(_nachrichten))
+            {
+                _nachrichten = meldung;
+            }
+            else
+            {
+                string.Concat(_nachrichten, ", ", meldung);
+            }
         }
     }
 }
