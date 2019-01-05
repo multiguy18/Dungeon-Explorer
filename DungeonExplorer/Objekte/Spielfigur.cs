@@ -110,7 +110,7 @@ namespace DungeonExplorer.Objekte
                 {
                     Zeichner.Textausgabe("Möchten Sie den Gegenstand aufheben?: ");
                     taste = Console.ReadKey().Key;
-                } while (taste != ConsoleKey.J || taste != ConsoleKey.N);
+                } while (taste != ConsoleKey.J && taste != ConsoleKey.N);
 
                 if (taste == ConsoleKey.N)
                 {
@@ -118,9 +118,22 @@ namespace DungeonExplorer.Objekte
                 }
 
                 Gegenstand gegenstand = (Gegenstand)anderes;
+                string slots = gegenstand.Slots;
 
-                _gegenstaende[gegenstand.Slots[0]] = gegenstand;
-                gegenstand.SetzeSpieler(this);
+                for (byte i = 0; i < slots.Length; i++)
+                {
+                    if (_gegenstaende[slots[i]] == null)
+                    {
+                        _gegenstaende[slots[i]] = gegenstand;
+                        gegenstand.SetzeSpieler(this);
+
+
+                        Hauptprogramm.Entferne(gegenstand);
+                        return false;
+                    }
+                }
+
+                Zeichner.Textausgabe("Gegenstand kann nicht ins Inventar gelegt werden.");
 
                 return false;
             }
