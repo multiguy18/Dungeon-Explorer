@@ -19,7 +19,7 @@ namespace DungeonExplorer.Objekte
 
         public bool Angriff()
         {
-
+            return true;
         }
     }
 }
