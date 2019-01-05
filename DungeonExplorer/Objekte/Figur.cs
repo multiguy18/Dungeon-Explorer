@@ -15,6 +15,11 @@ namespace DungeonExplorer.Objekte
 
         protected ushort _HP;
         protected ushort _schaden;
+        
+        public ushort HP
+        {
+            get { return _HP; }
+        }
 
         public void Schade(ushort schaden)
         {

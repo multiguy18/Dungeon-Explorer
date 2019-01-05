@@ -18,7 +18,7 @@ namespace DungeonExplorer.Objekte
 
         public Gegenstand(short posOben, short posLinks) : base(posOben, posLinks)
         {
-
+            _symbol = '*';
         }
 
         public void SetzeSpieler(Spielfigur spieler)

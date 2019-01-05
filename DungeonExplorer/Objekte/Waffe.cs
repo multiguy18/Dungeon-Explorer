@@ -6,20 +6,31 @@ using System.Threading.Tasks;
 
 namespace DungeonExplorer.Objekte
 {
-    public class Waffe : Gegenstand
+    public abstract class Waffe : Gegenstand
     {
+        Random zufallsgen;
+        protected byte _praezision;
+        protected ushort _waffenschaden;
+
         public Waffe(short posOben, short posLinks) : base(posOben, posLinks)
         {
+            zufallsgen = new Random();
         }
 
         public override void Benutze()
         {
-            
+            _spieler.WaffeAusruesten(this);
         }
 
-        public bool Angriff()
+        public bool Angriff(Monster ziel)
         {
-            return true;
+            if (zufallsgen.Next(0, 254) < _praezision)
+            {
+                ziel.Schade(_waffenschaden);
+                return true;
+            }
+
+            return false;
         }
     }
 }

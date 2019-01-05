@@ -58,6 +58,15 @@ namespace DungeonExplorer
                     case Aktion.BewegeNachRechts:
                         _spielfigur.Bewege(Richtung.Rechts);
                         break;
+                    case Aktion.WaffenslotA:
+                        _spielfigur.BenutzeGegenstand('a');
+                        break;
+                    case Aktion.WaffenslotB:
+                        _spielfigur.BenutzeGegenstand('b');
+                        break;
+                    case Aktion.WaffenslotC:
+                        _spielfigur.BenutzeGegenstand('c');
+                        break;
                     case Aktion.LembasBrot:
                         _spielfigur.BenutzeGegenstand('l');
                         break;
@@ -145,6 +154,12 @@ namespace DungeonExplorer
                     return Aktion.BewegeNachUnten;
                 case ConsoleKey.RightArrow:
                     return Aktion.BewegeNachRechts;
+                case ConsoleKey.A:
+                    return Aktion.WaffenslotA;
+                case ConsoleKey.B:
+                    return Aktion.WaffenslotB;
+                case ConsoleKey.C:
+                    return Aktion.WaffenslotC;
                 case ConsoleKey.L:
                     return Aktion.LembasBrot;
             }

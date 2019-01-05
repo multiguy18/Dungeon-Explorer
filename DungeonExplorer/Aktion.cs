@@ -12,6 +12,9 @@ namespace DungeonExplorer
         BewegeNachLinks,
         BewegeNachUnten,
         BewegeNachRechts,
+        WaffenslotA,
+        WaffenslotB,
+        WaffenslotC,
         LembasBrot
     }
 }

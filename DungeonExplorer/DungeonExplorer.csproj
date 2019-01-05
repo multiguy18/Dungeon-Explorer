@@ -46,6 +46,7 @@
     <Compile Include="Aktion.cs" />
     <Compile Include="Hauptprogramm.cs" />
     <Compile Include="LevelAnbieter.cs" />
+    <Compile Include="Objekte\Dolch.cs" />
     <Compile Include="Objekte\Figur.cs" />
     <Compile Include="Objekte\Gegenstand.cs" />
     <Compile Include="Objekte\LembasBrot.cs" />
@@ -55,6 +56,7 @@
     <Compile Include="Objekte\Spielfigur.cs" />
     <Compile Include="Objekte\Tuere.cs" />
     <Compile Include="Objekte\Verbrauchsgegenstand.cs" />
+    <Compile Include="Objekte\Waffe.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Richtung.cs" />
     <Compile Include="Zeichner.cs" />

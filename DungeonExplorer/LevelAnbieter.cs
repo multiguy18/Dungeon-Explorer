@@ -58,7 +58,8 @@ namespace DungeonExplorer
                 new Tuere(6, 11),
                 new Ratte(null, 4, 5),
                 new LembasBrot(8, 11),
-                new LembasBrot(7, 11)
+                new LembasBrot(3, 4),
+                new Dolch(7, 11)
             })
         };
 

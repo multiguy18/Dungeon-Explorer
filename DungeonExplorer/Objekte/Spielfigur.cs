@@ -11,6 +11,7 @@ namespace DungeonExplorer.Objekte
     {
         private ushort _maxHP;
         private Dictionary<char, Gegenstand> _gegenstaende;
+        private Waffe _aktuelleWaffe = null;
 
         public string Name { get; private set; }
         public Spielfigur(string name, short posOben, short posLinks) : base (posOben, posLinks)
@@ -23,6 +24,9 @@ namespace DungeonExplorer.Objekte
 
             _gegenstaende = new Dictionary<char, Gegenstand>()
             {
+                { 'a', null },
+                { 'b', null },
+                { 'c', null },
                 { 'l', null }
             };
         }
@@ -37,11 +41,6 @@ namespace DungeonExplorer.Objekte
             {
                 _HP += menge;
             }
-        }
-
-        public ushort HP
-        {
-            get { return _HP; }
         }
 
         public ushort MaxHP
@@ -96,11 +95,28 @@ namespace DungeonExplorer.Objekte
                 //TODO: If zum überprüfen ob eine Waffe ausgewählt ist
                 Monster monster = (Monster)anderes;
 
-                Random zufallsgen = new Random();
-                if (zufallsgen.NextDouble() < 0.75)
+                if(_aktuelleWaffe == null)
                 {
-                    Hauptprogramm.Nachricht(monster.Bezeichnung + " wurde verletzt");
-                    monster.Schade(_schaden);
+                    Random zufallsgen = new Random();
+                    if (zufallsgen.NextDouble() < 0.75)
+                    {
+                        Hauptprogramm.Nachricht(monster.Bezeichnung + " wurde verletzt");
+                        monster.Schade(_schaden);
+                    }
+                }
+                else
+                {
+                    bool getroffen = _aktuelleWaffe.Angriff(monster);
+                    if (getroffen)
+                    {
+                        Hauptprogramm.Nachricht(monster.Bezeichnung + " wurde verletzt");
+                        monster.Schade(_schaden);
+                    }
+                }
+
+                if (monster.HP == 0)
+                {
+                    Hauptprogramm.Nachricht(monster.Bezeichnung + " ist Tot");
                 }
             }
             else if (anderes is Gegenstand)
@@ -150,6 +166,11 @@ namespace DungeonExplorer.Objekte
                 _gegenstaende[slot].Benutze();
                 _gegenstaende[slot] = null;
             }
+        }
+
+        public void WaffeAusruesten(Waffe waffe)
+        {
+            _aktuelleWaffe = waffe;
         }
     }
 }
