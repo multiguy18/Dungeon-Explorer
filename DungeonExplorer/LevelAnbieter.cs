@@ -56,7 +56,8 @@ namespace DungeonExplorer
             , new List<Objekt>{
                 new Spielfigur("Hallo", 7, 10),
                 new Tuere(6, 11),
-                new Ratte(null, 4, 5)
+                new Ratte(null, 4, 5),
+                new LembasBrot(8, 11)
             })
         };
 
