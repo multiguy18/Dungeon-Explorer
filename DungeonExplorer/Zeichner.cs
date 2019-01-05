@@ -40,10 +40,15 @@ namespace DungeonExplorer
 
             foreach (Objekt obj in objekte)
             {
-                Console.SetCursorPosition(obj.PosLinks, obj.PosOben);
-
-                Console.Write(obj.Symbol);
+                if (!(obj is Spielfigur))
+                {
+                    Console.SetCursorPosition(obj.PosLinks, obj.PosOben);
+                    Console.Write(obj.Symbol);
+                }
             }
+
+            Console.SetCursorPosition(spielfigur.PosLinks, spielfigur.PosOben);
+            Console.Write(spielfigur.Symbol);
 
             Console.SetCursorPosition(1, 26);
             Console.Write("HP:" + spielfigur.HP + " MAXHP:" + spielfigur.MaxHP);
