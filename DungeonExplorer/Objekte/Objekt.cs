@@ -12,7 +12,7 @@ namespace DungeonExplorer.Objekte
         protected short _posLinks;
 
         protected char _symbol;
-        protected short _bezeichnung;
+        protected string _bezeichnung;
 
         public short PosOben
         {
@@ -27,6 +27,11 @@ namespace DungeonExplorer.Objekte
         public char Symbol
         {
             get { return _symbol; }
+        }
+
+        public string Bezeichnung
+        {
+            get { return _bezeichnung; }
         }
 
         public Objekt(short posOben, short posLinks)

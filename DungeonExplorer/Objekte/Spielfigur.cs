@@ -108,7 +108,7 @@ namespace DungeonExplorer.Objekte
 
                 do
                 {
-                    Zeichner.Textausgabe("Möchten Sie den Gegenstand aufheben?: ");
+                    Zeichner.Textausgabe("\"" + anderes.Bezeichnung + "\" aufheben?: ");
                     taste = Console.ReadKey().Key;
                 } while (taste != ConsoleKey.J && taste != ConsoleKey.N);
 

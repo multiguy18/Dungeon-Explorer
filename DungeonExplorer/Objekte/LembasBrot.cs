@@ -12,6 +12,7 @@ namespace DungeonExplorer.Objekte
         {
             _slots = "l";
             _symbol = 'B';
+            _bezeichnung = "Lembas Brot";
         }
 
         public override void Benutze()
