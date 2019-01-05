@@ -69,6 +69,8 @@ namespace DungeonExplorer.Objekte
                 Spielfigur spielfigur = (Spielfigur)anderes;
                 spielfigur.Schade(_schaden);
 
+                Hauptprogramm.Nachricht(_bezeichnung + " hat dich getroffen", true);
+
                 return true;
             }
 

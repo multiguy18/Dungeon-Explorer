@@ -193,15 +193,19 @@ namespace DungeonExplorer
             _zuEntfernendeObjekte.Add(objekt);
         }
 
-        public static void Nachricht(string meldung)
+        public static void Nachricht(string meldung, bool kommaVorher = true)
         {
             if (string.IsNullOrEmpty(_nachrichten))
             {
                 _nachrichten = meldung;
             }
+            else if (kommaVorher == true)
+            {
+                _nachrichten = string.Concat(_nachrichten, ", ", meldung);
+            }
             else
             {
-                string.Concat(_nachrichten, ", ", meldung);
+                _nachrichten += meldung;
             }
         }
     }

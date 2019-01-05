@@ -11,8 +11,14 @@ namespace DungeonExplorer.Objekte
         public Ratte(Spielfigur ziel, short posOben, short posLinks) : base(ziel, posOben, posLinks)
         {
             _symbol = '(';
+            _bezeichnung = "Ratte";
             _HP = 5;
             _schaden = 3;
+        }
+
+        public override bool WirdKollidieren(Objekt anderes)
+        {
+            return base.WirdKollidieren(anderes);
         }
     }
 }

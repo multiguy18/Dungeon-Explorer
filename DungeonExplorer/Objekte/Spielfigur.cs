@@ -100,6 +100,7 @@ namespace DungeonExplorer.Objekte
                 if (zufallsgen.NextDouble() < 0.75)
                 {
                     monster.Schade(_schaden);
+                    Hauptprogramm.Nachricht(monster.Bezeichnung + " wurde verletzt");
                 }
             }
             else if (anderes is Gegenstand)
