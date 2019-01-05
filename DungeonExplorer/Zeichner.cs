@@ -53,13 +53,13 @@ namespace DungeonExplorer
         public static void Textausgabe(string text, bool resetCursor = false)
         {
             StringBuilder empty = new StringBuilder();
-            empty.Insert(0, " ", 45);
+            empty.Insert(0, " ", 55);
 
             Console.SetCursorPosition(2, 28);
             Console.Write(empty);
 
             Console.SetCursorPosition(2, 28);
-            Console.Write(text.Take(45).ToArray());
+            Console.Write(text.Take(55).ToArray());
 
             if (resetCursor)
             {
