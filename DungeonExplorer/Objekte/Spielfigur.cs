@@ -10,6 +10,7 @@ namespace DungeonExplorer.Objekte
     public class Spielfigur : Figur
     {
         private ushort _maxHP;
+        private Dictionary<char, Gegenstand> _gegenstaende;
 
         public string Name { get; private set; }
         public Spielfigur(string name, short posOben, short posLinks) : base (posOben, posLinks)
@@ -19,6 +20,11 @@ namespace DungeonExplorer.Objekte
             _HP = 30;
             _maxHP = 30;
             _schaden = 5;
+
+            _gegenstaende = new Dictionary<char, Gegenstand>()
+            {
+                { 'l', null }
+            };
         }
 
         public void Heile(byte menge)
@@ -96,8 +102,40 @@ namespace DungeonExplorer.Objekte
                     monster.Schade(_schaden);
                 }
             }
+            else if (anderes is Gegenstand)
+            {
+                ConsoleKey taste;
+
+                do
+                {
+                    Zeichner.Textausgabe("Möchten Sie den Gegenstand aufheben?: ");
+                    taste = Console.ReadKey().Key;
+                } while (taste != ConsoleKey.J || taste != ConsoleKey.N);
+
+                if (taste == ConsoleKey.N)
+                {
+                    return false;
+                }
+
+                Gegenstand gegenstand = (Gegenstand)anderes;
+
+                _gegenstaende[gegenstand.Slots[0]] = gegenstand;
+                gegenstand.SetzeSpieler(this);
+
+                return false;
+            }
 
             return true;
+        }
+
+        public void BenutzeGegenstand(char slot)
+        {
+            //TODO: Anderes Verhalten für Waffen
+            if (_gegenstaende[slot] != null)
+            {
+                _gegenstaende[slot].Benutze();
+                _gegenstaende[slot] = null;
+            }
         }
     }
 }

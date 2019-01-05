@@ -9,6 +9,12 @@ namespace DungeonExplorer.Objekte
     public abstract class Gegenstand : Objekt
     {
         protected Spielfigur _spieler;
+        protected string _slots;
+
+        public string Slots
+        {
+            get { return _slots; }
+        }
 
         public Gegenstand(short posOben, short posLinks) : base(posOben, posLinks)
         {

@@ -10,6 +10,8 @@ namespace DungeonExplorer.Objekte
     {
         public LembasBrot(short posOben, short posLinks) : base(posOben, posLinks)
         {
+            _slots = "l";
+            _symbol = 'B';
         }
 
         public override void Benutze()

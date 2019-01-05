@@ -53,6 +53,9 @@ namespace DungeonExplorer
                     case Aktion.BewegeNachRechts:
                         _spielfigur.Bewege(Richtung.Rechts);
                         break;
+                    case Aktion.LembasBrot:
+                        _spielfigur.BenutzeGegenstand('l');
+                        break;
                 }
 
                 /*
@@ -135,6 +138,8 @@ namespace DungeonExplorer
                     return Aktion.BewegeNachUnten;
                 case ConsoleKey.RightArrow:
                     return Aktion.BewegeNachRechts;
+                case ConsoleKey.L:
+                    return Aktion.LembasBrot;
             }
 
             return Aktion.BewegeNachUnten;

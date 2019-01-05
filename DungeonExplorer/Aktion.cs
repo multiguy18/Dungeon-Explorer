@@ -11,6 +11,7 @@ namespace DungeonExplorer
         BewegeNachOben,
         BewegeNachLinks,
         BewegeNachUnten,
-        BewegeNachRechts
+        BewegeNachRechts,
+        LembasBrot
     }
 }
