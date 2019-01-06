@@ -28,9 +28,13 @@ namespace DungeonExplorer
 
             Console.BufferWidth = 80;
             Console.BufferHeight = 30;
+            
+            Console.Write("Wie soll deine Spielfigur heissen?: ");
+            _spielfigur = new Spielfigur(Console.ReadLine(), 0, 0);
+            Console.Clear();
 
             //Levelanbieter erstellen und erstes Level laden
-            _lAnbieter = new LevelAnbieter();
+            _lAnbieter = new LevelAnbieter(_spielfigur);
             _zuEntfernendeObjekte = new List<Objekt>();
 
             //Erstes Level setzen
@@ -137,22 +141,6 @@ namespace DungeonExplorer
         {
             _objekte = _lAnbieter.LadeLevel(levelnr);
 
-            if (_spielfigur != null)
-            {
-                Spielfigur duplikat = (Spielfigur)_objekte.Single(p => p.GetType() == typeof(Spielfigur));
-
-                short posObenNeu = duplikat.PosOben;
-                short posLinksNeu = duplikat.PosLinks;
-                _objekte.Remove(duplikat);
-
-                _spielfigur.Bewege(posObenNeu, posLinksNeu);
-                _objekte.Add(_spielfigur);
-            }
-            else
-            {
-                _spielfigur = (Spielfigur)_objekte.Single(p => p.GetType() == typeof(Spielfigur));
-            }
-
             foreach (Objekt objekt in _objekte)
             {
                 if (objekt is Monster)
@@ -160,6 +148,8 @@ namespace DungeonExplorer
                     ((Monster)objekt).SetzeZiel(_spielfigur);
                 }
             }
+
+            _objekte.Add(_spielfigur);
         }
 
         private static Aktion VerarbeiteEingabe()
