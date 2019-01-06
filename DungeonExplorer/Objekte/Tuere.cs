@@ -15,7 +15,7 @@ namespace DungeonExplorer.Objekte
 
         public void OeffneTuere()
         {
-            Zeichner.Textausgabe("Die Türe öffnet sich...");
+            Hauptprogramm.Nachricht("Die Türe öffnet sich...");
 
             Hauptprogramm.Entferne(this);
         }

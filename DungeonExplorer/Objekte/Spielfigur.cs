@@ -182,6 +182,10 @@ namespace DungeonExplorer.Objekte
                         Hauptprogramm.Nachricht(monster.Bezeichnung + " wurde verletzt");
                         monster.Schade(_schaden);
                     }
+                    else
+                    {
+                        Hauptprogramm.Nachricht(monster.Bezeichnung + " wurde verfehlt");
+                    }
                 }
                 else
                 {
@@ -190,6 +194,10 @@ namespace DungeonExplorer.Objekte
                     {
                         Hauptprogramm.Nachricht(monster.Bezeichnung + " wurde verletzt");
                         monster.Schade(_schaden);
+                    }
+                    else
+                    {
+                        Hauptprogramm.Nachricht(monster.Bezeichnung + " wurde verfehlt");
                     }
                 }
 
