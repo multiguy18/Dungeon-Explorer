@@ -254,6 +254,8 @@ namespace DungeonExplorer.Objekte
             }
         }
 
+        //TODO: Inventaranzeige inplementieren.
+        /*
         public Dictionary<char, string> ZeigeInventar()
         {
             Dictionary<char, string> info = new Dictionary<char, string>();
@@ -282,6 +284,7 @@ namespace DungeonExplorer.Objekte
                 else if 
             }
         }
+        */
 
         public void WaffeAusruesten(Waffe waffe)
         {
