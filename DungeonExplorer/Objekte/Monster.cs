@@ -9,6 +9,7 @@ namespace DungeonExplorer.Objekte
     public abstract class Monster : Figur
     {
         private Spielfigur _ziel;
+        protected ushort _belohnung;
 
         public Monster(Spielfigur ziel, short posOben, short posLinks) : base(posOben, posLinks)
         {
@@ -79,6 +80,7 @@ namespace DungeonExplorer.Objekte
 
         protected override void IstTot()
         {
+            _ziel.Belohne(_belohnung);
             Hauptprogramm.Entferne(this);
         }
     }

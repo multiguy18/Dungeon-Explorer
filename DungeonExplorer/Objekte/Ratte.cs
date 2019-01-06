@@ -14,6 +14,7 @@ namespace DungeonExplorer.Objekte
             _bezeichnung = "Ratte";
             _HP = 5;
             _schaden = 3;
+            _belohnung = 2;
         }
 
         public override bool WirdKollidieren(Objekt anderes)
