@@ -23,7 +23,30 @@ namespace DungeonExplorer.Objekte
 
         public override void Benutze()
         {
-            throw new NotImplementedException();
+            if (_heilung > 0)
+            {
+                _spieler.Heile((byte)_heilung);
+            }
+            else if (_heilung < 0)
+            {
+                short schaden = _heilung;
+                _spieler.Schade((ushort)Math.Abs(schaden));
+            }
+
+            if (_angriffsschaden > 0)
+            {
+                _spieler.ErhoeheSchaden((ushort)_angriffsschaden);
+            }
+            else if (_angriffsschaden < 0)
+            {
+                int dekrementierung = _angriffsschaden;
+                _spieler.VerringereSchaden((ushort)Math.Abs(dekrementierung));
+            }
+
+            if (_ep > 0)
+            {
+                _spieler.Belohne(_ep);
+            }
         }
     }
 }
