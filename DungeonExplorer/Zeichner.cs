@@ -47,11 +47,15 @@ namespace DungeonExplorer
                 }
             }
 
+            //Spielfigur zeichnen
             Console.SetCursorPosition(spielfigur.PosLinks, spielfigur.PosOben);
             Console.Write(spielfigur.Symbol);
 
+            //Spielerwerte anzeigen
             Console.SetCursorPosition(1, 26);
-            Console.Write("HP:" + spielfigur.HP + " MAXHP:" + spielfigur.MaxHP);
+            Console.Write("HP:" + spielfigur.HP + " MH:" + spielfigur.MaxHP + " EP:" + spielfigur.EP + " ME:" + spielfigur.MaxEP + " LV:" + spielfigur.Level + " SC:" + spielfigur.Schaden);
+
+
 
             Console.SetCursorPosition(0, 28);
             Console.Write(nachrichten);

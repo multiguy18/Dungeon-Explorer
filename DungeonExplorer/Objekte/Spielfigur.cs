@@ -75,6 +75,11 @@ namespace DungeonExplorer.Objekte
             get { return _spielerLevel; }
         }
 
+        public ushort Schaden
+        {
+            get { return _schaden; }
+        }
+
         public void ErhoeheSchaden(ushort menge)
         {
             if (menge + _schaden > ushort.MaxValue)

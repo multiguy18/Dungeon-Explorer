@@ -12,6 +12,11 @@ namespace DungeonExplorer.Objekte
         protected byte _praezision;
         protected ushort _waffenschaden;
 
+        public ushort Waffenschaden
+        {
+            get { return _waffenschaden; }
+        }
+
         public Waffe(short posOben, short posLinks) : base(posOben, posLinks)
         {
             zufallsgen = new Random();
