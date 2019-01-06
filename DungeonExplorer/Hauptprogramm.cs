@@ -20,6 +20,8 @@ namespace DungeonExplorer
 
         static void Main(string[] args)
         {
+            bool ueberspringeMonsterzug = false;
+
             //Initialisierung Konsole
             Console.WindowWidth = 80;
             Console.WindowHeight = 30;
@@ -41,6 +43,8 @@ namespace DungeonExplorer
 
             do
             {
+                ueberspringeMonsterzug = false;
+
                 Aktion aktion;
                 aktion = VerarbeiteEingabe();
 
@@ -60,15 +64,31 @@ namespace DungeonExplorer
                         break;
                     case Aktion.WaffenslotA:
                         _spielfigur.BenutzeGegenstand('a');
+                        ueberspringeMonsterzug = true;
                         break;
                     case Aktion.WaffenslotB:
                         _spielfigur.BenutzeGegenstand('b');
+                        ueberspringeMonsterzug = true;
                         break;
                     case Aktion.WaffenslotC:
                         _spielfigur.BenutzeGegenstand('c');
+                        ueberspringeMonsterzug = true;
+                        break;
+                    case Aktion.TrankslotI:
+                        _spielfigur.BenutzeGegenstand('i');
+                        ueberspringeMonsterzug = true;
+                        break;
+                    case Aktion.TrankslotJ:
+                        _spielfigur.BenutzeGegenstand('j');
+                        ueberspringeMonsterzug = true;
+                        break;
+                    case Aktion.TrankslotK:
+                        _spielfigur.BenutzeGegenstand('k');
+                        ueberspringeMonsterzug = true;
                         break;
                     case Aktion.LembasBrot:
                         _spielfigur.BenutzeGegenstand('l');
+                        ueberspringeMonsterzug = true;
                         break;
                 }
 
@@ -84,12 +104,15 @@ namespace DungeonExplorer
                 }
                 _zuEntfernendeObjekte.Clear();
 
-                foreach (Objekt objekt in _objekte)
+                if (!ueberspringeMonsterzug)
                 {
-                    if (objekt is Monster)
+                    foreach (Objekt objekt in _objekte)
                     {
-                        Monster monster = (Monster)objekt;
-                        monster.Bewege();
+                        if (objekt is Monster)
+                        {
+                            Monster monster = (Monster)objekt;
+                            monster.Bewege();
+                        }
                     }
                 }
 
@@ -160,6 +183,12 @@ namespace DungeonExplorer
                     return Aktion.WaffenslotB;
                 case ConsoleKey.C:
                     return Aktion.WaffenslotC;
+                case ConsoleKey.I:
+                    return Aktion.TrankslotI;
+                case ConsoleKey.J:
+                    return Aktion.TrankslotJ;
+                case ConsoleKey.K:
+                    return Aktion.TrankslotK;
                 case ConsoleKey.L:
                     return Aktion.LembasBrot;
             }

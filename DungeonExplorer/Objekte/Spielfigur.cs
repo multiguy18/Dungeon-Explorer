@@ -26,6 +26,7 @@ namespace DungeonExplorer.Objekte
             _HP = 30;
             _maxHP = 30;
             _maxEP = 15;
+            _spielerLevel = 1;
             _schaden = 5;
 
             _gegenstaende = new Dictionary<char, Gegenstand>()
@@ -103,12 +104,13 @@ namespace DungeonExplorer.Objekte
             //Mehrfacher Levelaufstieg falls Menge über ein Levelaustieg hinausgeht
             if (menge + _EP >= _maxEP)
             {
-                while (menge + _EP > _maxEP)
+                while (menge + _EP >= _maxEP)
                 {
                     _EP += menge;
                     _EP -= _maxEP;
                     menge = _EP;
                     Levelaufstieg();
+                    _EP = 0;
                 }
             }
             _EP += menge;

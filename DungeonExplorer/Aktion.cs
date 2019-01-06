@@ -15,6 +15,9 @@ namespace DungeonExplorer
         WaffenslotA,
         WaffenslotB,
         WaffenslotC,
+        TrankslotI,
+        TrankslotJ,
+        TrankslotK,
         LembasBrot
     }
 }
