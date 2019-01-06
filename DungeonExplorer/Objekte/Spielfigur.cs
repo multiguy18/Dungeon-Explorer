@@ -254,6 +254,35 @@ namespace DungeonExplorer.Objekte
             }
         }
 
+        public Dictionary<char, string> ZeigeInventar()
+        {
+            Dictionary<char, string> info = new Dictionary<char, string>();
+
+            foreach (char schlüssel in _gegenstaende.Keys)
+            {
+                Gegenstand gegenstand = _gegenstaende[schlüssel];
+                string beschriftung;
+
+                if (gegenstand == null)
+                {
+                    info.Add(schlüssel, "leer");
+                }
+                else if (gegenstand is Waffe)
+                {
+                    Waffe waffe = (Waffe)gegenstand;
+                    beschriftung = waffe.Bezeichnung + " (+" + waffe.Waffenschaden + ")";
+
+                    if (_aktuelleWaffe != null && _aktuelleWaffe == waffe)
+                    {
+                        beschriftung += " *";
+                    }
+
+                    info.Add(schlüssel, beschriftung);
+                }
+                else if 
+            }
+        }
+
         public void WaffeAusruesten(Waffe waffe)
         {
             _aktuelleWaffe = waffe;
