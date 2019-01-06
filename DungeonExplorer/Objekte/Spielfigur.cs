@@ -10,6 +10,11 @@ namespace DungeonExplorer.Objekte
     public class Spielfigur : Figur
     {
         private ushort _maxHP;
+
+        private byte _spielerLevel;
+        private ushort _EP;
+        private ushort _maxEP;
+
         private Dictionary<char, Gegenstand> _gegenstaende;
         private Waffe _aktuelleWaffe = null;
 
@@ -20,6 +25,7 @@ namespace DungeonExplorer.Objekte
             _symbol = '@';
             _HP = 30;
             _maxHP = 30;
+            _maxEP = 15;
             _schaden = 5;
 
             _gegenstaende = new Dictionary<char, Gegenstand>()
@@ -27,6 +33,11 @@ namespace DungeonExplorer.Objekte
                 { 'a', null },
                 { 'b', null },
                 { 'c', null },
+                { 'd', null },
+                { 'e', null },
+                { 'i', null },
+                { 'j', null },
+                { 'k', null },
                 { 'l', null }
             };
         }
@@ -46,6 +57,69 @@ namespace DungeonExplorer.Objekte
         public ushort MaxHP
         {
             get { return _maxHP; }
+        }
+
+        public ushort EP
+        {
+            get { return _EP; }
+        }
+
+        public ushort MaxEP
+        {
+            get { return _maxEP; }
+        }
+
+        public ushort Level
+        {
+            get { return _spielerLevel; }
+        }
+
+        public void ErhoeheSchaden(ushort menge)
+        {
+            if (menge + _schaden > ushort.MaxValue)
+            {
+                _schaden = ushort.MaxValue;
+            }
+            else
+            {
+                _schaden += menge;
+            }
+        }
+
+        public void VerringereSchaden(ushort menge)
+        {
+            if (_schaden - menge < 0)
+            {
+                _schaden = 0;
+            }
+            else
+            {
+                _schaden -= menge;
+            }
+        }
+
+        public void Belohne(ushort menge)
+        {
+            //Mehrfacher Levelaufstieg falls Menge über ein Levelaustieg hinausgeht
+            if (menge + _EP >= _maxEP)
+            {
+                while (menge + _EP > _maxEP)
+                {
+                    _EP += menge;
+                    _EP -= _maxEP;
+                    menge = _EP;
+                    Levelaufstieg();
+                }
+            }
+            _EP += menge;
+        }
+
+        public void Levelaufstieg()
+        {
+            _spielerLevel++;
+            _maxEP += 15;
+            _maxHP += 5;
+            _schaden += 3;
         }
 
         public void Bewege(short posOben, short posLinks)
@@ -88,11 +162,9 @@ namespace DungeonExplorer.Objekte
             {
                 Tuere tuere = (Tuere)anderes;
                 tuere.OeffneTuere();
-                return true;
             }
             else if (anderes is Monster)
             {
-                //TODO: If zum überprüfen ob eine Waffe ausgewählt ist
                 Monster monster = (Monster)anderes;
 
                 if(_aktuelleWaffe == null)
@@ -143,8 +215,7 @@ namespace DungeonExplorer.Objekte
                     {
                         _gegenstaende[slots[i]] = gegenstand;
                         gegenstand.SetzeSpieler(this);
-
-
+                        
                         Hauptprogramm.Entferne(gegenstand);
                         return false;
                     }
@@ -160,11 +231,19 @@ namespace DungeonExplorer.Objekte
 
         public void BenutzeGegenstand(char slot)
         {
-            //TODO: Anderes Verhalten für Waffen
-            if (_gegenstaende[slot] != null)
+            Gegenstand gegenstand = _gegenstaende[slot];
+
+            if (gegenstand != null)
             {
-                _gegenstaende[slot].Benutze();
-                _gegenstaende[slot] = null;
+                if (gegenstand is Waffe || gegenstand is Ruestung)
+                {
+                    gegenstand.Benutze();
+                }
+                else
+                {
+                    _gegenstaende[slot].Benutze();
+                    _gegenstaende[slot] = null;
+                }
             }
         }
 
