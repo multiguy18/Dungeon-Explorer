@@ -262,20 +262,19 @@ namespace DungeonExplorer.Objekte
             }
         }
 
-        //TODO: Inventaranzeige inplementieren.
-        /*
+        
         public Dictionary<char, string> ZeigeInventar()
         {
             Dictionary<char, string> info = new Dictionary<char, string>();
 
-            foreach (char schlüssel in _gegenstaende.Keys)
+            foreach (char schluessel in _gegenstaende.Keys)
             {
-                Gegenstand gegenstand = _gegenstaende[schlüssel];
+                Gegenstand gegenstand = _gegenstaende[schluessel];
                 string beschriftung;
 
                 if (gegenstand == null)
                 {
-                    info.Add(schlüssel, "leer");
+                    info.Add(schluessel, "leer");
                 }
                 else if (gegenstand is Waffe)
                 {
@@ -287,12 +286,23 @@ namespace DungeonExplorer.Objekte
                         beschriftung += " *";
                     }
 
-                    info.Add(schlüssel, beschriftung);
+                    info.Add(schluessel, beschriftung);
                 }
-                else if 
+                else if  (gegenstand is Ruestung)
+                {
+                    Ruestung ruestung = (Ruestung)gegenstand;
+                    beschriftung = ruestung.Bezeichnung + " (+" + ruestung.Wert + ")";
+
+                    info.Add(schluessel, beschriftung);
+                }
+                else
+                {
+                    info.Add(schluessel, gegenstand.Bezeichnung);
+                }
             }
+
+            return info;
         }
-        */
 
         public void WaffeAusruesten(Waffe waffe)
         {

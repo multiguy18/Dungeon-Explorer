@@ -12,6 +12,7 @@ namespace DungeonExplorer
         public static void Zeichne(byte[,] level, List<Objekt> objekte, Spielfigur spielfigur, string nachrichten)
         {
             string konsoleBuffer = "";
+            Dictionary<char, string> inventar;
 
             for (short zeile = 0; zeile < level.GetLength(0); zeile++)
             {
@@ -54,8 +55,16 @@ namespace DungeonExplorer
             //Spielerwerte anzeigen
             Console.SetCursorPosition(1, 26);
             Console.Write("HP:" + spielfigur.HP + " MH:" + spielfigur.MaxHP + " EP:" + spielfigur.EP + " ME:" + spielfigur.MaxEP + " LV:" + spielfigur.Level + " SC:" + spielfigur.Schaden);
+            Console.SetCursorPosition(56, 3);
 
-            
+            inventar = spielfigur.ZeigeInventar();
+
+            foreach (char schluessel in inventar.Keys)
+            {
+                Console.Write(schluessel + " : " + inventar[schluessel]);
+                Console.CursorTop++;
+                Console.CursorLeft = 56;
+            }
 
             Console.SetCursorPosition(0, 28);
             Console.Write(nachrichten);
