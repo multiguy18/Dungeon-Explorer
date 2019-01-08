@@ -16,7 +16,7 @@ namespace DungeonExplorer
         private static Spielfigur _spielfigur;
         private static byte _levelNr;
 
-        public static bool NaechstesLevel = false;
+        private static bool _naechstesLevel = false;
 
         static void Main(string[] args)
         {
@@ -38,6 +38,7 @@ namespace DungeonExplorer
             _zuEntfernendeObjekte = new List<Objekt>();
 
             //Erstes Level setzen
+            //Ist vorerst ein Testlevel :/
             _levelNr = 2;
 
             WechsleLevel(_levelNr);
@@ -120,12 +121,12 @@ namespace DungeonExplorer
                     }
                 }
 
-                if (NaechstesLevel == true)
+                if (_naechstesLevel == true)
                 {
                     _levelNr++;
                     WechsleLevel(_levelNr);
 
-                    NaechstesLevel = false;
+                    _naechstesLevel = false;
                 }
 
                 Console.Clear();
@@ -135,6 +136,11 @@ namespace DungeonExplorer
                 _nachrichten = "";
 
             } while (true);
+        }
+
+        public static void NaechstesLevel()
+        {
+            _naechstesLevel = true;
         }
 
         public static void WechsleLevel(byte levelnr)
