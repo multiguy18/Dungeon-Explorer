@@ -274,7 +274,7 @@ namespace DungeonExplorer.Objekte
 
                 if (gegenstand == null)
                 {
-                    info.Add(schluessel, "leer");
+                    info.Add(schluessel, "-");
                 }
                 else if (gegenstand is Waffe)
                 {
