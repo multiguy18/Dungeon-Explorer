@@ -291,7 +291,7 @@ namespace DungeonExplorer.Objekte
                 else if  (gegenstand is Ruestung)
                 {
                     Ruestung ruestung = (Ruestung)gegenstand;
-                    beschriftung = ruestung.Bezeichnung + " (+" + ruestung.Wert + ")";
+                    beschriftung = ruestung.Bezeichnung + " (" + ruestung.Wert + ")";
 
                     info.Add(schluessel, beschriftung);
                 }
