@@ -18,6 +18,8 @@ namespace DungeonExplorer.Objekte
         private Dictionary<char, Gegenstand> _gegenstaende;
         private Waffe _aktuelleWaffe = null;
 
+        private bool _nichtBlockierterSchaden;
+
         public string Name { get; private set; }
         public Spielfigur(string name, short posOben, short posLinks) : base (posOben, posLinks)
         {
@@ -28,6 +30,7 @@ namespace DungeonExplorer.Objekte
             _maxEP = 15;
             _spielerLevel = 1;
             _schaden = 5;
+            _nichtBlockierterSchaden = false;
 
             _gegenstaende = new Dictionary<char, Gegenstand>()
             {
@@ -53,6 +56,48 @@ namespace DungeonExplorer.Objekte
             {
                 _HP += menge;
             }
+        }
+
+        public void Schade(ushort schaden, bool nichtBlockiert)
+        {
+            if (nichtBlockiert)
+            {
+                _nichtBlockierterSchaden = true;
+            }
+
+            Schade(schaden);
+        }
+
+        public override void Schade(ushort schaden)
+        {
+            if (!_nichtBlockierterSchaden)
+            {
+                if (_gegenstaende['d'] != null)
+                {
+                    Ruestung ruestungD = (Ruestung)_gegenstaende['d'];
+                    schaden -= ruestungD.Blockiere(schaden);
+
+                    if (ruestungD.Wert == 0)
+                    {
+                        _gegenstaende['d'] = null;
+                    }
+                }
+                if (_gegenstaende['e'] != null)
+                {
+                    Ruestung ruestungE = (Ruestung)_gegenstaende['e'];
+                    schaden -= ruestungE.Blockiere(schaden);
+
+                    if (ruestungE.Wert == 0)
+                    {
+                        _gegenstaende['e'] = null;
+                    }
+                }
+
+            }
+
+            base.Schade(schaden);
+
+            _nichtBlockierterSchaden = false;
         }
 
         public ushort MaxHP

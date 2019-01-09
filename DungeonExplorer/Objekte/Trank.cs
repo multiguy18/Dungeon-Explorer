@@ -30,7 +30,7 @@ namespace DungeonExplorer.Objekte
             else if (_heilung < 0)
             {
                 short schaden = _heilung;
-                _spieler.Schade((ushort)Math.Abs(schaden));
+                _spieler.Schade((ushort)Math.Abs(schaden), true);
             }
 
             if (_angriffsschaden > 0)

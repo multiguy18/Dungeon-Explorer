@@ -21,7 +21,7 @@ namespace DungeonExplorer.Objekte
             get { return _HP; }
         }
 
-        public void Schade(ushort schaden)
+        public virtual void Schade(ushort schaden)
         {
             if (schaden > _HP)
             {
