@@ -63,7 +63,6 @@ namespace DungeonExplorer
             {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},}
             , new List<Objekt>{
-                //new Spielfigur("Hallo", 4, 5),
             },
                 4, 5
             ),
@@ -79,13 +78,13 @@ namespace DungeonExplorer
             {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 2, 1},
             {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1},}
             , new List<Objekt>{
-                //new Spielfigur("Hallo", 7, 10),
                 new Tuere(6, 11),
                 new Ratte(null, 4, 5),
                 new LembasBrot(8, 11),
                 new LembasBrot(3, 4),
-                new Trank(4, 4, 5, 0, 50),
-                new Dolch(7, 11)
+                new Trank(4, 4, -5, 0, 50),
+                new Dolch(7, 11),
+                new Brustpanzer(8, 10)
             },
                 7, 10
             )

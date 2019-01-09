@@ -46,6 +46,7 @@
     <Compile Include="Aktion.cs" />
     <Compile Include="Hauptprogramm.cs" />
     <Compile Include="LevelAnbieter.cs" />
+    <Compile Include="Objekte\Brustpanzer.cs" />
     <Compile Include="Objekte\Dolch.cs" />
     <Compile Include="Objekte\Figur.cs" />
     <Compile Include="Objekte\Gegenstand.cs" />
