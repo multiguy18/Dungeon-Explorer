@@ -120,7 +120,7 @@ namespace DungeonExplorer
                         if (objekt is Monster)
                         {
                             Monster monster = (Monster)objekt;
-                            monster.Bewege();
+                            monster.Bewege(null, null);
                         }
                     }
                 }

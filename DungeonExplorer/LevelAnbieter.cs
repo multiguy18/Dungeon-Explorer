@@ -81,6 +81,7 @@ namespace DungeonExplorer
                 new Tuere(6, 10),
                 new Tuere(4, 14),
                 new Ratte(null, 4, 5),
+                new Ratte(null, 2, 12),
                 new LembasBrot(8, 12),
                 new LembasBrot(3, 4),
                 new Trank(4, 4, -5, 0, 50),
@@ -110,11 +111,12 @@ namespace DungeonExplorer
             {0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0}}
             , new List<Objekt>{
                 new Tuere(2, 5),
+                new Tuere(13, 11),
                 new Ratte(null, 4, 7),
                 new Goblin(null, 5, 11),
                 new Skelett(null, 7, 8),
                 new Skelett(null, 15, 11),
-                new Trank(5, 10, 3, 0, 0),
+                new Trank(5, 12, 3, 0, 0),
                 new Falltuere(14, 9),
                 new Kettenharnisch(15, 10)
             },
@@ -135,19 +137,17 @@ namespace DungeonExplorer
             {1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 2, 1, 2, 1, 1, 0},
             {1, 2, 2, 2, 2, 1, 0, 0, 0, 0, 3, 1, 2, 1, 1, 0},
             {1, 2, 2, 2, 2, 1, 0, 0, 0, 0, 3, 0, 3, 0, 0, 0},
-            {1, 2, 2, 2, 1, 1, 0, 0, 0, 0, 3, 0, 3, 0, 0, 0},
+            {1, 2, 2, 2, 2, 1, 0, 0, 0, 0, 3, 0, 3, 0, 0, 0},
             {1, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 0, 0, 0},
             {1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}}
             , new List<Objekt>{
                 new Tuere(3, 5),
-                new Tuere(3, 8),
                 new Tuere(11, 10),
                 new Tuere(12, 12),
                 new Ratte(null, 4, 3),
                 new Ratte(null, 4, 12),
-                new Goblin(null, 5, 11),
+                new Goblin(null, 13, 11),
                 new Goblin(null, 13, 2),
-                new Skelett(null, 7, 10),
                 new Skelett(null, 15, 11),
                 new Trank(9, 11, 10, -2, 0),
                 new Kurzschwert(3, 13),

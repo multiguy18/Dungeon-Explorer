@@ -10,6 +10,7 @@ namespace DungeonExplorer.Objekte
     {
         private Spielfigur _ziel;
         protected ushort _belohnung;
+        private int _nichtbewegt = 0;
 
         public Monster(Spielfigur ziel, short posOben, short posLinks) : base(posOben, posLinks)
         {
@@ -22,7 +23,13 @@ namespace DungeonExplorer.Objekte
             _ziel = ziel;
         }
 
-        public virtual void Bewege()
+        /// <summary>
+        ///     Bewegungsmuster für Monster
+        /// </summary>
+        /// <param name="distx">Manuelle Distanz X. Wird verwendet, wenn sich ein Monster vorher nicht bewegt hat, 
+        /// um die Bewegungsrichtung manuell zu ändern</param>
+        /// <param name="disty">Manuelle Distanz Y. Siehe distx</param>
+        public virtual void Bewege(int? distx, int? disty)
         {
             short _tempPosOben = _posOben;
             short _tempPosLinks = _posLinks;
@@ -30,8 +37,14 @@ namespace DungeonExplorer.Objekte
             int differenzOben = _ziel.PosOben - PosOben;
             int differenzLinks = _ziel.PosLinks - PosLinks;
 
-            int distanzY = Math.Abs(differenzOben);
-            int distanzX = Math.Abs(differenzLinks);
+            int distanzY = disty ?? Math.Abs(differenzOben);
+            int distanzX = distx ?? Math.Abs(differenzLinks);
+
+            //Wenn das Monster zu weit weg ist, bewegt es sich nicht
+            if(distanzX + distanzY >= 10)
+            {
+                return;
+            }
 
             if (distanzY >= distanzX)
             {
@@ -60,6 +73,25 @@ namespace DungeonExplorer.Objekte
             {
                 _posOben = _tempPosOben;
                 _posLinks = _tempPosLinks;
+            } else
+            {
+                _nichtbewegt++;
+
+                //Wenn sich ein Monster x-1 Züge nicht bewegt hat, soll die Bewegungsrichtung geändert werden, 
+                //auch wenn die Distanz in der anderen Richtung grösser ist
+                if(_nichtbewegt >= 2)
+                {
+                    if(distanzY >= distanzX)
+                    {
+                        _nichtbewegt = 0;
+                        Bewege(1, 0);
+                    } else
+                    {
+                        _nichtbewegt = 0;
+                        Bewege(0, 1);
+                    }
+                    
+                }
             }
         }
 
