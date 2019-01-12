@@ -10,7 +10,7 @@ namespace DungeonExplorer.Objekte
     {
         public Goblin(Spielfigur ziel, short posOben, short posLinks) : base(ziel, posOben, posLinks)
         {
-            _symbol = '^';
+            _symbol = '%';
             _bezeichnung = "Goblin";
             _HP = 7;
             _schaden = 4;

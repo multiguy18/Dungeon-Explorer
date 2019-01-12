@@ -48,9 +48,11 @@
     <Compile Include="LevelAnbieter.cs" />
     <Compile Include="Objekte\Brustpanzer.cs" />
     <Compile Include="Objekte\Dolch.cs" />
+    <Compile Include="Objekte\Falltuere.cs" />
     <Compile Include="Objekte\Figur.cs" />
     <Compile Include="Objekte\Gegenstand.cs" />
     <Compile Include="Objekte\Goblin.cs" />
+    <Compile Include="Objekte\Kettenharnisch.cs" />
     <Compile Include="Objekte\Keule.cs" />
     <Compile Include="Objekte\Kurzschwert.cs" />
     <Compile Include="Objekte\LembasBrot.cs" />

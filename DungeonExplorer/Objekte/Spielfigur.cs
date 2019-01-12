@@ -215,6 +215,10 @@ namespace DungeonExplorer.Objekte
                 Tuere tuere = (Tuere)anderes;
                 tuere.OeffneTuere();
             }
+            else if (anderes is Falltuere)
+            {
+                Hauptprogramm.NaechstesLevel();
+            }
             else if (anderes is Monster)
             {
                 Monster monster = (Monster)anderes;

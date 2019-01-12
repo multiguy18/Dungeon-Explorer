@@ -12,8 +12,8 @@ namespace DungeonExplorer.Objekte
         {
             _bezeichnung = "Brustpanzer";
             _slots = "d";
-            _wert = 30;
-            _schadensabwehr = 8;
+            _wert = 10;
+            _schadensabwehr = 3;
         }
     }
 }
