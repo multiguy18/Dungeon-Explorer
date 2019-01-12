@@ -50,11 +50,13 @@
     <Compile Include="Objekte\Dolch.cs" />
     <Compile Include="Objekte\Figur.cs" />
     <Compile Include="Objekte\Gegenstand.cs" />
+    <Compile Include="Objekte\Goblin.cs" />
     <Compile Include="Objekte\LembasBrot.cs" />
     <Compile Include="Objekte\Monster.cs" />
     <Compile Include="Objekte\Objekt.cs" />
     <Compile Include="Objekte\Ratte.cs" />
     <Compile Include="Objekte\Ruestung.cs" />
+    <Compile Include="Objekte\Skelett.cs" />
     <Compile Include="Objekte\Spielfigur.cs" />
     <Compile Include="Objekte\Trank.cs" />
     <Compile Include="Objekte\Tuere.cs" />

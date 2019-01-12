@@ -50,7 +50,7 @@ namespace DungeonExplorer.Objekte
         {
             if (menge + _HP > _maxHP)
             {
-                _HP = 30;
+                _HP = _maxHP;
             }
             else
             {
