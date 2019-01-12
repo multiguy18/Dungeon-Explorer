@@ -18,6 +18,7 @@ namespace DungeonExplorer
         TrankslotI,
         TrankslotJ,
         TrankslotK,
-        LembasBrot
+        LembasBrot, 
+        Fallenlassen
     }
 }

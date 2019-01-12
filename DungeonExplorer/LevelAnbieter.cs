@@ -162,7 +162,9 @@ namespace DungeonExplorer
             {0, 1, 2, 2, 2, 1, 0},
             {0, 1, 2, 2, 2, 1, 0},
             {0, 1, 1, 1, 1, 1, 0}}
-            , new List<Objekt>{},
+            , new List<Objekt>{
+                new Keule(4, 4)
+            },
                 3, 3
             )
         };

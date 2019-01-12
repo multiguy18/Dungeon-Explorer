@@ -311,6 +311,22 @@ namespace DungeonExplorer.Objekte
             }
         }
 
+        public void GegenstandFallenlassen(char slot)
+        {
+
+            Gegenstand gegenstand = _gegenstaende[slot];
+
+            if(gegenstand != null)
+            {
+                _gegenstaende[slot] = null;
+                Hauptprogramm.Nachricht("Gegenstand " + gegenstand.Bezeichnung + " weg geworfen");
+                
+            } else
+            {
+                Hauptprogramm.Nachricht("Dieser Gegenstand ist nicht vorhanden");
+            }
+        }
+
         
         public Dictionary<char, string> ZeigeInventar()
         {

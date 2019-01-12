@@ -95,6 +95,10 @@ namespace DungeonExplorer
                         _spielfigur.BenutzeGegenstand('l');
                         ueberspringeMonsterzug = true;
                         break;
+                    case Aktion.Fallenlassen:
+                        var key = Console.ReadKey();
+                        _spielfigur.GegenstandFallenlassen(key.KeyChar);
+                        break;
                 }
 
                 /*
@@ -187,6 +191,9 @@ namespace DungeonExplorer
                     return Aktion.TrankslotK;
                 case ConsoleKey.L:
                     return Aktion.LembasBrot;
+                case ConsoleKey.F:
+                    Zeichner.Zeichne(_lAnbieter.Level, _objekte, _spielfigur, "Welchen Gegenstand wegwerfen?");
+                    return Aktion.Fallenlassen;
             }
 
             return Aktion.BewegeNachUnten;
