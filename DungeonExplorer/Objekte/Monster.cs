@@ -27,8 +27,8 @@ namespace DungeonExplorer.Objekte
             short _tempPosOben = _posOben;
             short _tempPosLinks = _posLinks;
 
-            int differenzOben = Math.Abs(_ziel.PosOben - PosOben);
-            int differenzLinks = Math.Abs(_ziel.PosLinks - PosLinks);
+            int differenzOben = _ziel.PosOben - PosOben;
+            int differenzLinks = _ziel.PosLinks - PosLinks;
 
             int distanzY = Math.Abs(differenzOben);
             int distanzX = Math.Abs(differenzLinks);
