@@ -30,7 +30,14 @@ namespace DungeonExplorer
             Console.BufferHeight = 30;
             
             Console.Write("Wie soll deine Spielfigur heissen?: ");
-            _spielfigur = new Spielfigur(Console.ReadLine(), 0, 0);
+            string bez = Console.ReadLine();
+            if (string.IsNullOrEmpty(bez)) {
+                bez = "namenloser Held";
+            }
+            _spielfigur = new Spielfigur(bez, 0, 0);
+
+            
+
             Console.Clear();
 
             //Levelanbieter erstellen und erstes Level laden
@@ -121,6 +128,18 @@ namespace DungeonExplorer
                         {
                             Monster monster = (Monster)objekt;
                             monster.Bewege(null, null);
+
+                            if(_spielfigur.HP <= 0)
+                            {
+                                string msg = "Du bist gestorben. Spiel beendet. Viel Glück beim nächsten Mal! :)";
+                                Console.Clear();
+                                Console.WriteLine(msg);
+                                Console.WriteLine();
+                                Console.WriteLine("RIP " + _spielfigur.Name + ". Er hat es immerhin bis Level " + _spielfigur.Level + " geschafft.");
+                                Console.WriteLine(_spielfigur.Name + " möge uns immer in Erinnerung bleiben.");
+                                Console.ReadKey();
+                                return;
+                            }
                         }
                     }
                 }

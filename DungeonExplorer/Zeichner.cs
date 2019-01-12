@@ -54,7 +54,7 @@ namespace DungeonExplorer
 
             //Spielerwerte anzeigen
             Console.SetCursorPosition(1, 26);
-            Console.Write("HP:" + spielfigur.HP + " MaxHP:" + spielfigur.MaxHP + " EP:" + spielfigur.EP + " MaxEP:" + spielfigur.MaxEP + " LV:" + spielfigur.Level + " DMG:" + spielfigur.Schaden);
+            Console.Write(spielfigur.Name + " / HP:" + spielfigur.HP + " MaxHP:" + spielfigur.MaxHP + " EP:" + spielfigur.EP + " MaxEP:" + spielfigur.MaxEP + " LV:" + spielfigur.Level + " DMG:" + spielfigur.Schaden);
             Console.SetCursorPosition(56, 3);
 
             inventar = spielfigur.ZeigeInventar();
