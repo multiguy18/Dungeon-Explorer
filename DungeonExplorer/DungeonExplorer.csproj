@@ -51,6 +51,8 @@
     <Compile Include="Objekte\Figur.cs" />
     <Compile Include="Objekte\Gegenstand.cs" />
     <Compile Include="Objekte\Goblin.cs" />
+    <Compile Include="Objekte\Keule.cs" />
+    <Compile Include="Objekte\Kurzschwert.cs" />
     <Compile Include="Objekte\LembasBrot.cs" />
     <Compile Include="Objekte\Monster.cs" />
     <Compile Include="Objekte\Objekt.cs" />

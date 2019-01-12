@@ -248,7 +248,7 @@ namespace DungeonExplorer.Objekte
 
                 if (monster.HP == 0)
                 {
-                    Hauptprogramm.Nachricht(monster.Bezeichnung + " ist Tot");
+                    Hauptprogramm.Nachricht(monster.Bezeichnung + " ist tot");
                 }
             }
             else if (anderes is Gegenstand)
