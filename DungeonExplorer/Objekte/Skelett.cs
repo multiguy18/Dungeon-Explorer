@@ -16,10 +16,5 @@ namespace DungeonExplorer.Objekte
             _schaden = 5;
             _belohnung = 5;
         }
-
-        public override bool WirdKollidieren(Objekt anderes)
-        {
-            return base.WirdKollidieren(anderes);
-        }
     }
 }

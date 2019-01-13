@@ -313,6 +313,11 @@ namespace DungeonExplorer.Objekte
 
         public void GegenstandFallenlassen(char slot)
         {
+            if (!_gegenstaende.ContainsKey(slot))
+            {
+                Hauptprogramm.Nachricht("Kein gültiger Slot ausgewählt");
+                return;
+            }
 
             Gegenstand gegenstand = _gegenstaende[slot];
 
